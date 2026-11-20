@@ -332,10 +332,10 @@ el('askBtn').onclick = async () => {
   } finally { el('askBtn').disabled = false; }
 };
 
-// 深链：/?doc=<doc_id>&q=<问题> 直接出结果（可分享给面试官，也方便截图）
+// 深链：/?doc=<doc_id>&q=<问题>&subject=parent|consolidated 直接出结果
 (function deepLink(){
   const p = new URLSearchParams(location.search);
-  const docId = p.get('doc'), q = p.get('q');
+  const docId = p.get('doc'), q = p.get('q'), subj = p.get('subject');
   if (!docId) return;
   const row = document.querySelector(`.doc[data-id="${docId}"]`);
   if (row) {
@@ -344,6 +344,7 @@ el('askBtn').onclick = async () => {
     currentDoc = docId;
     el('meta').textContent = '已选择：' + row.dataset.title;
   }
+  if (subj) el('subject').value = subj;
   if (q) {
     el('q').value = q;
     setTimeout(() => el('askBtn').click(), 120);
