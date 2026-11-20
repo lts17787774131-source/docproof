@@ -331,6 +331,24 @@ el('askBtn').onclick = async () => {
     if (j.citations.length) showPage(j.citations[0].page, j.citations[0].bbox);
   } finally { el('askBtn').disabled = false; }
 };
+
+// 深链：/?doc=<doc_id>&q=<问题> 直接出结果（可分享给面试官，也方便截图）
+(function deepLink(){
+  const p = new URLSearchParams(location.search);
+  const docId = p.get('doc'), q = p.get('q');
+  if (!docId) return;
+  const row = document.querySelector(`.doc[data-id="${docId}"]`);
+  if (row) {
+    row.click();
+    row.classList.add('active');
+    currentDoc = docId;
+    el('meta').textContent = '已选择：' + row.dataset.title;
+  }
+  if (q) {
+    el('q').value = q;
+    setTimeout(() => el('askBtn').click(), 120);
+  }
+})();
 </script>
 </body>
 </html>
