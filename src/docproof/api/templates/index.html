@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>DocProof · 可溯源文档问答</title>
+<style>
+  :root { --bg:#0f1115; --panel:#171a21; --line:#262b36; --fg:#e6e9ef; --dim:#8b93a3;
+          --accent:#4c8dff; --ok:#3ecf8e; --warn:#f2b94b; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif; }
+  header { padding:14px 22px; border-bottom:1px solid var(--line); display:flex; align-items:baseline; gap:12px; }
+  header h1 { font-size:16px; margin:0; letter-spacing:.3px; }
+  header span { color:var(--dim); font-size:12px; }
+  .wrap { display:grid; grid-template-columns: 320px 1fr 46%; gap:0; height:calc(100vh - 53px); }
+  .col { overflow:auto; padding:16px; border-right:1px solid var(--line); }
+  .col:last-child { border-right:none; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px; margin-bottom:12px; }
+  .card h3 { margin:0 0 8px; font-size:13px; color:var(--dim); font-weight:600; }
+  input[type=text], select { width:100%; padding:9px 10px; background:#0d0f14; border:1px solid var(--line);
+          border-radius:8px; color:var(--fg); outline:none; }
+  input[type=file] { color:var(--dim); font-size:12px; }
+  button { background:var(--accent); color:#fff; border:none; border-radius:8px; padding:9px 14px;
+          cursor:pointer; font-weight:600; }
+  button.ghost { background:#20242e; border:1px solid var(--line); }
+  button.ghost.danger { border-color:#6d2a2a; color:#ff9a9a; }
+  button.small { padding:5px 10px; font-size:12px; }
+  button:disabled { opacity:.5; cursor:default; }
+  .doc { padding:8px 10px; border:1px solid var(--line); border-radius:8px; margin-bottom:8px;
+         cursor:pointer; display:flex; gap:8px; align-items:flex-start; }
+  .doc:hover, .doc.active { border-color:var(--accent); }
+  .doc input.pick { margin-top:3px; accent-color: var(--accent); }
+  .doc-main { min-width:0; }
+  .doc b { font-size:13px; display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .doc small { color:var(--dim); display:block; }
+  .toolbar { display:flex; gap:6px; align-items:center; margin-bottom:10px; flex-wrap:wrap; }
+  .chk { display:flex; gap:5px; align-items:center; font-size:12px; color:var(--dim); }
+  .answer { font-size:15px; line-height:1.7; white-space:pre-wrap; }
+  .badge { display:inline-block; font-size:11px; padding:2px 8px; border-radius:99px; margin-right:6px; }
+  .b-ok { background:rgba(62,207,142,.15); color:var(--ok); }
+  .b-warn { background:rgba(242,185,75,.15); color:var(--warn); }
+  .cite { border:1px solid var(--line); border-radius:8px; padding:8px 10px; margin-top:8px; cursor:pointer; }
+  .cite:hover { border-color:var(--accent); }
+  .cite small { color:var(--dim); }
+  .btnrow { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+  .alt { border:1px solid var(--line); border-radius:8px; padding:8px 10px; margin-top:6px; }
+  .alt:hover { border-color:var(--accent); }
+  .alt-head { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+  .alt-text { margin-top:4px; white-space:pre-wrap; word-break:break-word; font-size:13px; }
+  .alt-actions { display:flex; gap:6px; margin-top:6px; }
+  .muted { color:var(--dim); font-size:12px; }
+  #viewer { position:relative; background:#fff; border-radius:8px; overflow:hidden; }
+  #viewer img { width:100%; display:block; }
+  .box { position:absolute; border:2px solid #ff5252; background:rgba(255,82,82,.14);
+         box-shadow:0 0 0 9999px rgba(0,0,0,.06); border-radius:2px; }
+  .hit { font-size:12px; color:var(--dim); border-top:1px dashed var(--line); padding:6px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>DocProof</h1><span>可溯源的多模态文档问答 · 每个回答都能点回原文</span>
+</header>
+<div class="wrap">
+  <div class="col">
+    <div class="card">
+      <h3>上传 PDF</h3>
+      <input type="file" id="file" accept="application/pdf"/>
+      <div style="margin-top:8px"><button id="uploadBtn">建索引</button></div>
+      <div class="muted" id="uploadMsg"></div>
+    </div>
+    <div class="card">
+      <h3>文档（{{ docs|length }}）</h3>
+      <div class="toolbar">
+        <label class="chk"><input type="checkbox" id="checkAll"/> 全选</label>
+        <button class="ghost" id="rebuildBtn" disabled>重建所选</button>
+        <button class="ghost" id="deleteBtn" disabled>删除索引</button>
+        <button class="ghost danger" id="purgeBtn" disabled>彻底移除</button>
+        <span class="muted" id="selInfo"></span>
+      </div>
+      <div id="docs">
+        {% for d in docs %}
+        <div class="doc" data-id="{{ d.doc_id }}" data-title="{{ d.title }}">
+          <input type="checkbox" class="pick" value="{{ d.doc_id }}" onclick="event.stopPropagation()"/>
+          <div class="doc-main">
+            <b>{{ d.title }}</b>
+            <small>{% if d.n_chunks %}{{ d.n_pages }} 页 · {{ d.n_chunks }} 块{% else %}<span style="color:var(--warn)">未索引</span> · 可重建{% endif %}</small>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card">
+      <h3>提问</h3>
+      <input type="text" id="q" placeholder="例如：第三季度营业收入是多少亿元？"/>
+      <div style="margin-top:8px; display:flex; gap:8px;">
+        <button id="askBtn">提问</button>
+        <select id="provider" style="width:auto">
+          <option value="extractive">extractive（离线）</option>
+          <option value="ollama">ollama qwen3:8b</option>
+        </select>
+        <select id="subject" style="width:auto" title="报表口径">
+          <option value="auto">口径：自动</option>
+          <option value="consolidated">合并报表</option>
+          <option value="parent">母公司报表</option>
+        </select>
+      </div>
+    </div>
+    <div class="card">
+      <h3>回答</h3>
+      <div id="meta" class="muted">选择一份文档后提问</div>
+      <div class="answer" id="answer"></div>
+      <div class="btnrow" id="ansActions" hidden>
+        <button class="ghost small" id="copyAns">复制答案</button>
+        <button class="ghost small" id="toggleAns" hidden>展开全文</button>
+      </div>
+      <div id="cites"></div>
+      <div id="altsWrap" hidden>
+        <h3 style="margin-top:14px">其他相关答案（逐条可定位 / 可复制）</h3>
+        <div id="alts"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>检索证据（top-5）</h3>
+      <div id="hits"></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card">
+      <h3>原文定位</h3>
+      <div id="viewer"><div class="muted" style="padding:20px">点击左侧引用查看原文位置</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentDoc = null;
+function el(id){ return document.getElementById(id); }
+
+function bindDocRow(d){
+  const main = d.querySelector('.doc-main');
+  if (!main) return;
+  main.addEventListener('click', () => {
+    document.querySelectorAll('.doc').forEach(x => x.classList.remove('active'));
+    d.classList.add('active');
+    currentDoc = d.dataset.id;
+    el('meta').textContent = '已选择：' + d.dataset.title;
+  });
+}
+document.querySelectorAll('.doc').forEach(bindDocRow);
+
+function selectedIds(){
+  return [...document.querySelectorAll('.doc .pick:checked')].map(x => x.value);
+}
+function updateSel(){
+  const n = selectedIds().length;
+  el('rebuildBtn').disabled = n === 0;
+  el('deleteBtn').disabled = n === 0;
+  el('purgeBtn').disabled = n === 0;
+  el('selInfo').textContent = n ? `已选 ${n}` : '';
+}
+document.addEventListener('change', e => {
+  if (e.target.id === 'checkAll') {
+    document.querySelectorAll('.doc .pick').forEach(c => c.checked = e.target.checked);
+  }
+  if (e.target.matches('.doc .pick, #checkAll')) updateSel();
+});
+
+async function bulkAction(kind){
+  const ids = selectedIds();
+  if (!ids.length) return;
+  const verb = kind === 'rebuild' ? '重建' : (kind === 'purge' ? '彻底移除' : '删除索引');
+  const tip = kind === 'rebuild'
+    ? '会重新解析 PDF、重新切分与向量化（大文档较慢）。'
+    : (kind === 'purge' ? '索引、文档记录、页面图都会删除，不可恢复（PDF 源文件保留）。'
+                        : '只删索引，文档仍留在列表里（显示"未索引"），可随时重建。');
+  if (!confirm(`${verb} ${ids.length} 份文档？\n\n${tip}`)) return;
+  el('selInfo').textContent = `${verb}中…`;
+  let failed = 0;
+  for (const id of ids) {
+    const qs = kind === 'purge' ? '?purge=true' : '';
+    const url = `/api/docs/${encodeURIComponent(id)}${kind === 'rebuild' ? '/rebuild' : ''}${qs}`;
+    const r = await fetch(url, {method: kind === 'rebuild' ? 'POST' : 'DELETE'});
+    if (!r.ok) { failed++; console.warn(id, await r.text()); }
+  }
+  el('selInfo').textContent = failed ? `${verb}完成，${failed} 个失败` : `${verb}完成`;
+  if (!failed) setTimeout(() => location.reload(), 400);
+}
+el('deleteBtn').onclick = () => bulkAction('delete');
+el('purgeBtn').onclick = () => bulkAction('purge');
+el('rebuildBtn').onclick = () => bulkAction('rebuild');
+
+el('uploadBtn').onclick = async () => {
+  const f = el('file').files[0];
+  if (!f) return;
+  el('uploadMsg').textContent = '解析并建索引中…';
+  const fd = new FormData(); fd.append('file', f);
+  const r = await fetch('/api/docs', {method:'POST', body: fd});
+  const j = await r.json();
+  if (!r.ok) { el('uploadMsg').textContent = '失败：' + (j.detail || r.status); return; }
+  el('uploadMsg').textContent = `完成：${j.pages} 页 / ${j.chunks} 块 / ${j.seconds}s`;
+  const div = document.createElement('div');
+  div.className = 'doc'; div.dataset.id = j.doc_id; div.dataset.title = j.title;
+  div.innerHTML = `<input type="checkbox" class="pick" value="${j.doc_id}" onclick="event.stopPropagation()"/>
+                   <div class="doc-main"><b>${j.title}</b><small>${j.pages} 页 · ${j.chunks} 块</small></div>`;
+  bindDocRow(div);
+  el('docs').prepend(div);
+  currentDoc = j.doc_id;
+  updateSel();
+};
+
+async function showPage(page, bbox) {
+  const v = el('viewer');
+  v.innerHTML = `<img src="/api/docs/${currentDoc}/pages/${page}.png" id="pageImg"/>`;
+  const img = el('pageImg');
+  img.onload = () => {
+    if (!bbox) return;
+    const [x0,y0,x1,y1] = bbox;
+    const d = document.createElement('div');
+    d.className = 'box';
+    d.style.left = (x0*100) + '%'; d.style.top = (y0*100) + '%';
+    d.style.width = ((x1-x0)*100) + '%'; d.style.height = ((y1-y0)*100) + '%';
+    v.appendChild(d);
+  };
+}
+
+let lastAnswer = '';
+let ansExpanded = false;
+
+function esc(s){
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+async function copyText(t){
+  try { await navigator.clipboard.writeText(t); }
+  catch (e) {
+    const ta = document.createElement('textarea');
+    ta.value = t; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); ta.remove();
+  }
+}
+function renderAnswer(text){
+  lastAnswer = text || '';
+  ansExpanded = false;
+  const long = lastAnswer.length > 200;
+  el('answer').textContent = long ? lastAnswer.slice(0, 200) + '…' : lastAnswer;
+  el('toggleAns').hidden = !long;
+  el('toggleAns').textContent = '展开全文';
+  el('ansActions').hidden = !lastAnswer;
+}
+el('toggleAns').onclick = () => {
+  ansExpanded = !ansExpanded;
+  el('answer').textContent = ansExpanded ? lastAnswer : (lastAnswer.slice(0, 200) + '…');
+  el('toggleAns').textContent = ansExpanded ? '收起' : '展开全文';
+};
+el('copyAns').onclick = () => copyText(lastAnswer);
+
+function stmtLabel(c){
+  const subj = c.subject === 'parent' ? '母公司' : (c.subject === 'consolidated' ? '合并' : '');
+  return c.statement ? `${subj}${c.statement}` : c.type;
+}
+function renderCites(cites){
+  const wrap = el('cites'); wrap.innerHTML = '';
+  cites.forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'cite';
+    d.innerHTML = `<small>[${c.eid}] 第 ${c.page} 页 · ${stmtLabel(c)} · 核对${c.verified ? '通过' : '待人工'}</small>
+                   <div>${esc(c.snippet.slice(0, 120))}…</div>`;
+    d.onclick = () => showPage(c.page, c.bbox);
+    const btn = document.createElement('button');
+    btn.className = 'ghost small';
+    btn.textContent = '复制全文';
+    btn.onclick = (e) => { e.stopPropagation(); copyText(c.full_text || c.snippet); };
+    d.appendChild(btn);
+    wrap.appendChild(d);
+  });
+}
+function renderAlts(alts){
+  const wrap = el('alts'); wrap.innerHTML = '';
+  el('altsWrap').hidden = !alts || alts.length === 0;
+  (alts || []).forEach((a, i) => {
+    const d = document.createElement('div');
+    d.className = 'alt';
+    d.innerHTML = `<div class="alt-head"><small class="muted">#${i + 1} · 第 ${a.page} 页 · ${a.type}${a.section ? ' · ' + esc(a.section) : ''}</small>
+                     <small class="muted">分数 ${a.score}</small></div>
+                   <div class="alt-text">${esc(a.text)}</div>`;
+    const row = document.createElement('div');
+    row.className = 'alt-actions';
+    const b1 = document.createElement('button');
+    b1.className = 'ghost small'; b1.textContent = '定位原文';
+    b1.onclick = () => showPage(a.page, a.bbox);
+    const b2 = document.createElement('button');
+    b2.className = 'ghost small'; b2.textContent = '复制这段';
+    b2.onclick = () => copyText(a.text);
+    const b3 = document.createElement('button');
+    b3.className = 'ghost small'; b3.textContent = '复制整块';
+    b3.onclick = () => copyText(a.block_text || a.text);
+    row.append(b1, b2, b3);
+    d.appendChild(row);
+    wrap.appendChild(d);
+  });
+}
+
+el('askBtn').onclick = async () => {
+  if (!currentDoc) { el('meta').textContent = '请先选择文档'; return; }
+  const q = el('q').value.trim();
+  if (!q) return;
+  el('askBtn').disabled = true;
+  el('meta').textContent = '检索中…';
+  try {
+    const r = await fetch('/api/ask', {method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({doc_id: currentDoc, question: q, provider: el('provider').value,
+                            subject: el('subject').value})});
+    const j = await r.json();
+    if (!r.ok) { el('meta').textContent = '失败：' + (j.detail || r.status); return; }
+    const badge = j.refused
+      ? `<span class="badge b-warn">已拒答 · ${j.refusal_reason||''}</span>`
+      : `<span class="badge b-ok">${j.provider}</span>`;
+    el('meta').innerHTML = `${badge}<span class="muted">route=${j.route} · ${j.latency_ms}ms</span>`;
+    renderAnswer(j.answer);
+    renderCites(j.citations);
+    renderAlts(j.alternatives);
+    el('hits').innerHTML = '';
+    j.hits.slice(0,5).forEach((h,i) => {
+      const d = document.createElement('div');
+      d.className = 'hit';
+      d.textContent = `${i+1}. [${h.score}] p${h.page} ${h.type} · ${h.text.slice(0,80)}`;
+      el('hits').appendChild(d);
+    });
+    if (j.citations.length) showPage(j.citations[0].page, j.citations[0].bbox);
+  } finally { el('askBtn').disabled = false; }
+};
+</script>
+</body>
+</html>

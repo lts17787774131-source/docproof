@@ -1,0 +1,37 @@
+# 依赖与构建产物
+.venv/
+.venv*/
+__pycache__/
+*.pyc
+.uv/
+node_modules/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# 数据（体积大 / 版权原因不入库）
+data/raw/
+data/raw_real/
+data/parsed/
+data/pages/
+data/index/
+data/*.db
+data/*.db-journal
+*.pdf
+
+# 实验副产物（只保留 metrics/report，其余不入库）
+eval/predictions/*.jsonl
+eval/reports/*.log
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+*.local
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.dsh-*

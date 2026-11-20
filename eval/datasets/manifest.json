@@ -1,0 +1,32 @@
+[
+ {
+  "doc_id": "hxkj_2023",
+  "file": "D:\\AI应用+后端\\data\\raw\\华信科技2023年年度报告.pdf",
+  "n_questions": 13
+ },
+ {
+  "doc_id": "hyzz_2022",
+  "file": "D:\\AI应用+后端\\data\\raw\\恒远制造2022年度报告.pdf",
+  "n_questions": 13
+ },
+ {
+  "doc_id": "ctjt_2023h",
+  "file": "D:\\AI应用+后端\\data\\raw\\城投集团2023年半年度报告.pdf",
+  "n_questions": 11
+ },
+ {
+  "doc_id": "zywl_2021",
+  "file": "D:\\AI应用+后端\\data\\raw\\中远物流2021年度报告.pdf",
+  "n_questions": 13
+ },
+ {
+  "doc_id": "rfyy_2022",
+  "file": "D:\\AI应用+后端\\data\\raw\\瑞丰医药2022年度报告.pdf",
+  "n_questions": 13
+ },
+ {
+  "doc_id": "lhny_2023",
+  "file": "D:\\AI应用+后端\\data\\raw\\蓝海能源2023年度报告.pdf",
+  "n_questions": 13
+ }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "sec": "广咨国际",
+    "title": "2025年年度报告（更正后）",
+    "file": "D:\\AI应用+后端\\data\\raw_real\\广咨国际_1225649678.pdf",
+    "size_mb": 2.6,
+    "n_pages": 40,
+    "n_blocks": 426,
+    "n_tables": 43,
+    "n_figures": 18,
+    "scanned_pages": []
+  },
+  {
+    "sec": "ST东时",
+    "title": "2025年年度报告（更正后）",
+    "file": "D:\\AI应用+后端\\data\\raw_real\\ST东时_1225644179.pdf",
+    "size_mb": 2.8,
+    "n_pages": 40,
+    "n_blocks": 412,
+    "n_tables": 37,
+    "n_figures": 9,
+    "scanned_pages": [
+      14
+    ]
+  }
+]

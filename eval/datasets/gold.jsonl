@@ -1,0 +1,76 @@
+{"qid": "hxkj_2023-001", "doc_id": "hxkj_2023", "qtype": "T1", "question": "公司聘请的会计师事务所是哪一家？", "answer": "立信会计师事务所（特殊普通合伙）", "evidence": [{"page": 2, "text": "会计师事务所为立信会计师事务所（特殊普通合伙）"}], "answerable": true}
+{"qid": "hxkj_2023-002", "doc_id": "hxkj_2023", "qtype": "T1", "question": "公司的注册地址在哪里？", "answer": "上海市浦东新区张江路 88 号", "evidence": [{"page": 2, "text": "上海市浦东新区张江路 88 号"}], "answerable": true}
+{"qid": "hxkj_2023-003", "doc_id": "hxkj_2023", "qtype": "T1", "question": "报告期末公司在职员工有多少人？", "answer": "3,412", "evidence": [{"page": 2, "text": "在职员工 3,412 人"}], "answerable": true}
+{"qid": "hxkj_2023-004", "doc_id": "hxkj_2023", "qtype": "T2", "question": "第三季度单季营业收入是多少亿元？", "answer": "12.4 亿元", "evidence": [{"page": 3, "text": "第三季度 12.4"}], "answerable": true}
+{"qid": "hxkj_2023-005", "doc_id": "hxkj_2023", "qtype": "T2", "question": "第三季度营业收入相比上年同期增长了多少？", "answer": "0.0 亿元", "evidence": [{"page": 3, "text": "第三季度 12.4 12.4"}], "answerable": true}
+{"qid": "hxkj_2023-006", "doc_id": "hxkj_2023", "qtype": "T2", "question": "报告期研发投入合计多少？", "answer": "4.82 亿元", "evidence": [{"page": 3, "text": "研发投入合计 4.82 亿元"}], "answerable": true}
+{"qid": "hxkj_2023-007", "doc_id": "hxkj_2023", "qtype": "T2", "question": "研发投入占营业收入的比重是多少？", "answer": "8.6%", "evidence": [{"page": 3, "text": "营业收入比重 8.6%"}], "answerable": true}
+{"qid": "hxkj_2023-008", "doc_id": "hxkj_2023", "qtype": "T3", "question": "哪个季度的营业收入最高？", "answer": "第四季度", "evidence": [{"page": 3, "text": "第四季度 14.8"}], "answerable": true}
+{"qid": "hxkj_2023-009", "doc_id": "hxkj_2023", "qtype": "T3", "question": "哪一年的毛利率最高？", "answer": "2023", "evidence": [{"page": 4, "text": "2023 34.1%"}], "answerable": true}
+{"qid": "hxkj_2023-010", "doc_id": "hxkj_2023", "qtype": "T4", "question": "图 1 反映的研发投入强度变化是怎样的？", "answer": "研发投入占营业收入比重由 2021 年的 6.9% 提升至 2023 年的 8.6%", "evidence": [{"page": 5, "text": "研发投入占营业收入比重由 2021 年的 6.9% 提升至 2023 年的 8.6%"}], "answerable": true}
+{"qid": "hxkj_2023-011", "doc_id": "hxkj_2023", "qtype": "T5", "question": "经营活动产生的现金流量净额最近两年分别是多少？", "answer": "2022 年 5.6 亿元；2023 年 7.3 亿元", "evidence": [{"page": 4, "text": "2022 5.6 亿元"}, {"page": 5, "text": "2023 7.3 亿元"}], "answerable": true}
+{"qid": "hxkj_2023-012", "doc_id": "hxkj_2023", "qtype": "T6", "question": "公司 2025 年的营业收入是多少？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "hxkj_2023-013", "doc_id": "hxkj_2023", "qtype": "T6", "question": "公司董事长的姓名是什么？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "hyzz_2022-001", "doc_id": "hyzz_2022", "qtype": "T1", "question": "公司聘请的会计师事务所是哪一家？", "answer": "天健会计师事务所（特殊普通合伙）", "evidence": [{"page": 2, "text": "会计师事务所为天健会计师事务所（特殊普通合伙）"}], "answerable": true}
+{"qid": "hyzz_2022-002", "doc_id": "hyzz_2022", "qtype": "T1", "question": "公司的注册地址在哪里？", "answer": "江苏省苏州市工业园区星湖街 199 号", "evidence": [{"page": 2, "text": "江苏省苏州市工业园区星湖街 199 号"}], "answerable": true}
+{"qid": "hyzz_2022-003", "doc_id": "hyzz_2022", "qtype": "T1", "question": "报告期末公司在职员工有多少人？", "answer": "5,806", "evidence": [{"page": 2, "text": "在职员工 5,806 人"}], "answerable": true}
+{"qid": "hyzz_2022-004", "doc_id": "hyzz_2022", "qtype": "T2", "question": "第三季度单季营业收入是多少亿元？", "answer": "21.2 亿元", "evidence": [{"page": 3, "text": "第三季度 21.2"}], "answerable": true}
+{"qid": "hyzz_2022-005", "doc_id": "hyzz_2022", "qtype": "T2", "question": "第三季度营业收入相比上年同期增长了多少？", "answer": "0.4 亿元", "evidence": [{"page": 3, "text": "第三季度 21.2 20.8"}], "answerable": true}
+{"qid": "hyzz_2022-006", "doc_id": "hyzz_2022", "qtype": "T2", "question": "报告期研发投入合计多少？", "answer": "3.15 亿元", "evidence": [{"page": 3, "text": "研发投入合计 3.15 亿元"}], "answerable": true}
+{"qid": "hyzz_2022-007", "doc_id": "hyzz_2022", "qtype": "T2", "question": "研发投入占营业收入的比重是多少？", "answer": "5.2%", "evidence": [{"page": 3, "text": "营业收入比重 5.2%"}], "answerable": true}
+{"qid": "hyzz_2022-008", "doc_id": "hyzz_2022", "qtype": "T3", "question": "哪个季度的营业收入最高？", "answer": "第四季度", "evidence": [{"page": 3, "text": "第四季度 22.5"}], "answerable": true}
+{"qid": "hyzz_2022-009", "doc_id": "hyzz_2022", "qtype": "T3", "question": "哪一年的毛利率最高？", "answer": "2021", "evidence": [{"page": 4, "text": "2021 25.6%"}], "answerable": true}
+{"qid": "hyzz_2022-010", "doc_id": "hyzz_2022", "qtype": "T4", "question": "图 1 反映的研发投入强度变化是怎样的？", "answer": "2022 年境外收入占比达到 38.4%，较上年提升 4.1 个百分点", "evidence": [{"page": 5, "text": "2022 年境外收入占比达到 38.4%，较上年提升 4.1 个百分点"}], "answerable": true}
+{"qid": "hyzz_2022-011", "doc_id": "hyzz_2022", "qtype": "T5", "question": "经营活动产生的现金流量净额最近两年分别是多少？", "answer": "2021 年 8.2 亿元；2022 年 6.9 亿元", "evidence": [{"page": 4, "text": "2021 8.2 亿元"}, {"page": 5, "text": "2022 6.9 亿元"}], "answerable": true}
+{"qid": "hyzz_2022-012", "doc_id": "hyzz_2022", "qtype": "T6", "question": "公司 2025 年的营业收入是多少？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "hyzz_2022-013", "doc_id": "hyzz_2022", "qtype": "T6", "question": "公司董事长的姓名是什么？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "ctjt_2023h-001", "doc_id": "ctjt_2023h", "qtype": "T1", "question": "公司聘请的会计师事务所是哪一家？", "answer": "大华会计师事务所（特殊普通合伙）", "evidence": [{"page": 2, "text": "会计师事务所为大华会计师事务所（特殊普通合伙）"}], "answerable": true}
+{"qid": "ctjt_2023h-002", "doc_id": "ctjt_2023h", "qtype": "T1", "question": "公司的注册地址在哪里？", "answer": "湖北省武汉市武昌区中南路 12 号", "evidence": [{"page": 2, "text": "湖北省武汉市武昌区中南路 12 号"}], "answerable": true}
+{"qid": "ctjt_2023h-003", "doc_id": "ctjt_2023h", "qtype": "T1", "question": "报告期末公司在职员工有多少人？", "answer": "2,197", "evidence": [{"page": 2, "text": "在职员工 2,197 人"}], "answerable": true}
+{"qid": "ctjt_2023h-004", "doc_id": "ctjt_2023h", "qtype": "T2", "question": "报告期研发投入合计多少？", "answer": "1.06 亿元", "evidence": [{"page": 3, "text": "研发投入合计 1.06 亿元"}], "answerable": true}
+{"qid": "ctjt_2023h-005", "doc_id": "ctjt_2023h", "qtype": "T2", "question": "研发投入占营业收入的比重是多少？", "answer": "2.4%", "evidence": [{"page": 3, "text": "营业收入比重 2.4%"}], "answerable": true}
+{"qid": "ctjt_2023h-006", "doc_id": "ctjt_2023h", "qtype": "T3", "question": "哪个季度的营业收入最高？", "answer": "第二季度", "evidence": [{"page": 3, "text": "第二季度 26.8"}], "answerable": true}
+{"qid": "ctjt_2023h-007", "doc_id": "ctjt_2023h", "qtype": "T3", "question": "哪一年的毛利率最高？", "answer": "2021", "evidence": [{"page": 4, "text": "2021 18.4%"}], "answerable": true}
+{"qid": "ctjt_2023h-008", "doc_id": "ctjt_2023h", "qtype": "T4", "question": "图 1 反映的研发投入强度变化是怎样的？", "answer": "新签合同额 68.3 亿元，同比下降 3.2%", "evidence": [{"page": 5, "text": "新签合同额 68.3 亿元，同比下降 3.2%"}], "answerable": true}
+{"qid": "ctjt_2023h-009", "doc_id": "ctjt_2023h", "qtype": "T5", "question": "经营活动产生的现金流量净额最近两年分别是多少？", "answer": "2022H1 年 3.1 亿元；2023H1 年 4.4 亿元", "evidence": [{"page": 4, "text": "2022H1 3.1 亿元"}, {"page": 5, "text": "2023H1 4.4 亿元"}], "answerable": true}
+{"qid": "ctjt_2023h-010", "doc_id": "ctjt_2023h", "qtype": "T6", "question": "公司 2025 年的营业收入是多少？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "ctjt_2023h-011", "doc_id": "ctjt_2023h", "qtype": "T6", "question": "公司董事长的姓名是什么？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "zywl_2021-001", "doc_id": "zywl_2021", "qtype": "T1", "question": "公司聘请的会计师事务所是哪一家？", "answer": "信永中和会计师事务所（特殊普通合伙）", "evidence": [{"page": 2, "text": "会计师事务所为信永中和会计师事务所（特殊普通合伙）"}], "answerable": true}
+{"qid": "zywl_2021-002", "doc_id": "zywl_2021", "qtype": "T1", "question": "公司的注册地址在哪里？", "answer": "天津市滨海新区新港路 66 号", "evidence": [{"page": 2, "text": "天津市滨海新区新港路 66 号"}], "answerable": true}
+{"qid": "zywl_2021-003", "doc_id": "zywl_2021", "qtype": "T1", "question": "报告期末公司在职员工有多少人？", "answer": "4,028", "evidence": [{"page": 2, "text": "在职员工 4,028 人"}], "answerable": true}
+{"qid": "zywl_2021-004", "doc_id": "zywl_2021", "qtype": "T2", "question": "第三季度单季营业收入是多少亿元？", "answer": "17.8 亿元", "evidence": [{"page": 3, "text": "第三季度 17.8"}], "answerable": true}
+{"qid": "zywl_2021-005", "doc_id": "zywl_2021", "qtype": "T2", "question": "第三季度营业收入相比上年同期增长了多少？", "answer": "1.6 亿元", "evidence": [{"page": 3, "text": "第三季度 17.8 16.2"}], "answerable": true}
+{"qid": "zywl_2021-006", "doc_id": "zywl_2021", "qtype": "T2", "question": "报告期研发投入合计多少？", "answer": "2.37 亿元", "evidence": [{"page": 3, "text": "研发投入合计 2.37 亿元"}], "answerable": true}
+{"qid": "zywl_2021-007", "doc_id": "zywl_2021", "qtype": "T2", "question": "研发投入占营业收入的比重是多少？", "answer": "4.1%", "evidence": [{"page": 3, "text": "营业收入比重 4.1%"}], "answerable": true}
+{"qid": "zywl_2021-008", "doc_id": "zywl_2021", "qtype": "T3", "question": "哪个季度的营业收入最高？", "answer": "第四季度", "evidence": [{"page": 3, "text": "第四季度 18.4"}], "answerable": true}
+{"qid": "zywl_2021-009", "doc_id": "zywl_2021", "qtype": "T3", "question": "哪一年的毛利率最高？", "answer": "2021", "evidence": [{"page": 4, "text": "2021 22.7%"}], "answerable": true}
+{"qid": "zywl_2021-010", "doc_id": "zywl_2021", "qtype": "T4", "question": "图 1 反映的研发投入强度变化是怎样的？", "answer": "2021 年研发投入强度提升至 4.1%，较上年提高 0.6 个百分点", "evidence": [{"page": 5, "text": "2021 年研发投入强度提升至 4.1%，较上年提高 0.6 个百分点"}], "answerable": true}
+{"qid": "zywl_2021-011", "doc_id": "zywl_2021", "qtype": "T5", "question": "经营活动产生的现金流量净额最近两年分别是多少？", "answer": "2020 年 6.1 亿元；2021 年 7.4 亿元", "evidence": [{"page": 4, "text": "2020 6.1 亿元"}, {"page": 5, "text": "2021 7.4 亿元"}], "answerable": true}
+{"qid": "zywl_2021-012", "doc_id": "zywl_2021", "qtype": "T6", "question": "公司 2025 年的营业收入是多少？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "zywl_2021-013", "doc_id": "zywl_2021", "qtype": "T6", "question": "公司董事长的姓名是什么？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "rfyy_2022-001", "doc_id": "rfyy_2022", "qtype": "T1", "question": "公司聘请的会计师事务所是哪一家？", "answer": "普华永道中天会计师事务所（特殊普通合伙）", "evidence": [{"page": 2, "text": "会计师事务所为普华永道中天会计师事务所（特殊普通合伙）"}], "answerable": true}
+{"qid": "rfyy_2022-002", "doc_id": "rfyy_2022", "qtype": "T1", "question": "公司的注册地址在哪里？", "answer": "浙江省杭州市滨江区江南大道 588 号", "evidence": [{"page": 2, "text": "浙江省杭州市滨江区江南大道 588 号"}], "answerable": true}
+{"qid": "rfyy_2022-003", "doc_id": "rfyy_2022", "qtype": "T1", "question": "报告期末公司在职员工有多少人？", "answer": "1,876", "evidence": [{"page": 2, "text": "在职员工 1,876 人"}], "answerable": true}
+{"qid": "rfyy_2022-004", "doc_id": "rfyy_2022", "qtype": "T2", "question": "第三季度单季营业收入是多少亿元？", "answer": "11.9 亿元", "evidence": [{"page": 3, "text": "第三季度 11.9"}], "answerable": true}
+{"qid": "rfyy_2022-005", "doc_id": "rfyy_2022", "qtype": "T2", "question": "第三季度营业收入相比上年同期增长了多少？", "answer": "1.8 亿元", "evidence": [{"page": 3, "text": "第三季度 11.9 10.1"}], "answerable": true}
+{"qid": "rfyy_2022-006", "doc_id": "rfyy_2022", "qtype": "T2", "question": "报告期研发投入合计多少？", "answer": "6.42 亿元", "evidence": [{"page": 3, "text": "研发投入合计 6.42 亿元"}], "answerable": true}
+{"qid": "rfyy_2022-007", "doc_id": "rfyy_2022", "qtype": "T2", "question": "研发投入占营业收入的比重是多少？", "answer": "12.8%", "evidence": [{"page": 3, "text": "营业收入比重 12.8%"}], "answerable": true}
+{"qid": "rfyy_2022-008", "doc_id": "rfyy_2022", "qtype": "T3", "question": "哪个季度的营业收入最高？", "answer": "第四季度", "evidence": [{"page": 3, "text": "第四季度 13.2"}], "answerable": true}
+{"qid": "rfyy_2022-009", "doc_id": "rfyy_2022", "qtype": "T3", "question": "哪一年的毛利率最高？", "answer": "2020", "evidence": [{"page": 4, "text": "2020 62.4%"}], "answerable": true}
+{"qid": "rfyy_2022-010", "doc_id": "rfyy_2022", "qtype": "T4", "question": "图 1 反映的研发投入强度变化是怎样的？", "answer": "2022 年研发投入强度达到 12.8%，为近三年最高", "evidence": [{"page": 5, "text": "2022 年研发投入强度达到 12.8%，为近三年最高"}], "answerable": true}
+{"qid": "rfyy_2022-011", "doc_id": "rfyy_2022", "qtype": "T5", "question": "经营活动产生的现金流量净额最近两年分别是多少？", "answer": "2021 年 4.8 亿元；2022 年 5.9 亿元", "evidence": [{"page": 4, "text": "2021 4.8 亿元"}, {"page": 5, "text": "2022 5.9 亿元"}], "answerable": true}
+{"qid": "rfyy_2022-012", "doc_id": "rfyy_2022", "qtype": "T6", "question": "公司 2025 年的营业收入是多少？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "rfyy_2022-013", "doc_id": "rfyy_2022", "qtype": "T6", "question": "公司董事长的姓名是什么？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "lhny_2023-001", "doc_id": "lhny_2023", "qtype": "T1", "question": "公司聘请的会计师事务所是哪一家？", "answer": "德勤华永会计师事务所（特殊普通合伙）", "evidence": [{"page": 2, "text": "会计师事务所为德勤华永会计师事务所（特殊普通合伙）"}], "answerable": true}
+{"qid": "lhny_2023-002", "doc_id": "lhny_2023", "qtype": "T1", "question": "公司的注册地址在哪里？", "answer": "广东省深圳市南山区科技南路 18 号", "evidence": [{"page": 2, "text": "广东省深圳市南山区科技南路 18 号"}], "answerable": true}
+{"qid": "lhny_2023-003", "doc_id": "lhny_2023", "qtype": "T1", "question": "报告期末公司在职员工有多少人？", "answer": "6,940", "evidence": [{"page": 2, "text": "在职员工 6,940 人"}], "answerable": true}
+{"qid": "lhny_2023-004", "doc_id": "lhny_2023", "qtype": "T2", "question": "第三季度单季营业收入是多少亿元？", "answer": "33.7 亿元", "evidence": [{"page": 3, "text": "第三季度 33.7"}], "answerable": true}
+{"qid": "lhny_2023-005", "doc_id": "lhny_2023", "qtype": "T2", "question": "第三季度营业收入相比上年同期增长了多少？", "answer": "3.2 亿元", "evidence": [{"page": 3, "text": "第三季度 33.7 30.5"}], "answerable": true}
+{"qid": "lhny_2023-006", "doc_id": "lhny_2023", "qtype": "T2", "question": "报告期研发投入合计多少？", "answer": "1.88 亿元", "evidence": [{"page": 3, "text": "研发投入合计 1.88 亿元"}], "answerable": true}
+{"qid": "lhny_2023-007", "doc_id": "lhny_2023", "qtype": "T2", "question": "研发投入占营业收入的比重是多少？", "answer": "2.9%", "evidence": [{"page": 3, "text": "营业收入比重 2.9%"}], "answerable": true}
+{"qid": "lhny_2023-008", "doc_id": "lhny_2023", "qtype": "T3", "question": "哪个季度的营业收入最高？", "answer": "第四季度", "evidence": [{"page": 3, "text": "第四季度 36.2"}], "answerable": true}
+{"qid": "lhny_2023-009", "doc_id": "lhny_2023", "qtype": "T3", "question": "哪一年的毛利率最高？", "answer": "2021", "evidence": [{"page": 4, "text": "2021 21.6%"}], "answerable": true}
+{"qid": "lhny_2023-010", "doc_id": "lhny_2023", "qtype": "T4", "question": "图 1 反映的研发投入强度变化是怎样的？", "answer": "2023 年研发投入强度为 2.9%，较上年下降 0.3 个百分点", "evidence": [{"page": 5, "text": "2023 年研发投入强度为 2.9%，较上年下降 0.3 个百分点"}], "answerable": true}
+{"qid": "lhny_2023-011", "doc_id": "lhny_2023", "qtype": "T5", "question": "经营活动产生的现金流量净额最近两年分别是多少？", "answer": "2022 年 12.6 亿元；2023 年 15.1 亿元", "evidence": [{"page": 4, "text": "2022 12.6 亿元"}, {"page": 5, "text": "2023 15.1 亿元"}], "answerable": true}
+{"qid": "lhny_2023-012", "doc_id": "lhny_2023", "qtype": "T6", "question": "公司 2025 年的营业收入是多少？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}
+{"qid": "lhny_2023-013", "doc_id": "lhny_2023", "qtype": "T6", "question": "公司董事长的姓名是什么？", "answer": "NOT_IN_DOC", "evidence": [], "answerable": false}

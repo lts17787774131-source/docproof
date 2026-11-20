@@ -1,0 +1,206 @@
+{
+  "results": [
+    {
+      "config": {
+        "id": "B0",
+        "name": "定长512 + BM25",
+        "mode": "fixed",
+        "table_view": "flat",
+        "dense": false,
+        "boost": false
+      },
+      "n_questions": 76,
+      "acc": 0.4688,
+      "recall5": 0.7969,
+      "recall3": 0.7969,
+      "mrr": 0.7969,
+      "citation_precision": 0.7308,
+      "refusal_acc": 1.0,
+      "false_refusal": 0.1875,
+      "p95_latency_ms": 6,
+      "by_type": {
+        "T1": 1.0,
+        "T2": 0.5455,
+        "T3": 0.0,
+        "T4": 0.0,
+        "T5": 0.0
+      },
+      "elapsed_s": 1.1
+    },
+    {
+      "config": {
+        "id": "B1",
+        "name": "结构切分 + BM25",
+        "mode": "structural",
+        "table_view": "flat",
+        "dense": false,
+        "boost": false
+      },
+      "n_questions": 76,
+      "acc": 0.5625,
+      "recall5": 0.7656,
+      "recall3": 0.7656,
+      "mrr": 0.7266,
+      "citation_precision": 0.7544,
+      "refusal_acc": 1.0,
+      "false_refusal": 0.1094,
+      "p95_latency_ms": 4,
+      "by_type": {
+        "T1": 1.0,
+        "T2": 0.5455,
+        "T3": 0.0,
+        "T4": 1.0,
+        "T5": 0.0
+      },
+      "elapsed_s": 0.3
+    },
+    {
+      "config": {
+        "id": "B2",
+        "name": "+ 表头随行序列化",
+        "mode": "structural",
+        "table_view": "rows",
+        "dense": false,
+        "boost": false
+      },
+      "n_questions": 76,
+      "acc": 0.9844,
+      "recall5": 0.7656,
+      "recall3": 0.7656,
+      "mrr": 0.7656,
+      "citation_precision": 0.7619,
+      "refusal_acc": 1.0,
+      "false_refusal": 0.0156,
+      "p95_latency_ms": 3,
+      "by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 0.8333
+      },
+      "elapsed_s": 0.3
+    },
+    {
+      "config": {
+        "id": "B3",
+        "name": "+ 向量混合 + RRF",
+        "mode": "structural",
+        "table_view": "rows",
+        "dense": true,
+        "boost": false
+      },
+      "n_questions": 76,
+      "acc": 0.9844,
+      "recall5": 0.7656,
+      "recall3": 0.6719,
+      "mrr": 0.6906,
+      "citation_precision": 0.7619,
+      "refusal_acc": 1.0,
+      "false_refusal": 0.0156,
+      "p95_latency_ms": 4,
+      "by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 0.8333
+      },
+      "elapsed_s": 0.4
+    },
+    {
+      "config": {
+        "id": "B4",
+        "name": "+ 题型路由（表格优先）",
+        "mode": "structural",
+        "table_view": "rows",
+        "dense": false,
+        "boost": true
+      },
+      "n_questions": 76,
+      "acc": 0.9844,
+      "recall5": 0.7656,
+      "recall3": 0.7656,
+      "mrr": 0.7083,
+      "citation_precision": 0.7619,
+      "refusal_acc": 1.0,
+      "false_refusal": 0.0156,
+      "p95_latency_ms": 3,
+      "by_type": {
+        "T1": 1.0,
+        "T2": 1.0,
+        "T3": 1.0,
+        "T4": 1.0,
+        "T5": 0.8333
+      },
+      "elapsed_s": 0.3
+    }
+  ],
+  "comparison": {
+    "baseline": "B0",
+    "candidate": "B2",
+    "delta": 0.5156,
+    "ci95": [
+      0.3906,
+      0.6406
+    ],
+    "mcnemar_p": 0.0,
+    "discordant_b": 33,
+    "discordant_c": 0,
+    "n_pairs": 64
+  },
+  "comparisons": [
+    {
+      "baseline": "B0",
+      "candidate": "B1",
+      "delta": 0.0938,
+      "ci95": [
+        0.0312,
+        0.1719
+      ],
+      "mcnemar_p": 0.041227,
+      "discordant_b": 6,
+      "discordant_c": 0,
+      "n_pairs": 64
+    },
+    {
+      "baseline": "B0",
+      "candidate": "B2",
+      "delta": 0.5156,
+      "ci95": [
+        0.3906,
+        0.6406
+      ],
+      "mcnemar_p": 0.0,
+      "discordant_b": 33,
+      "discordant_c": 0,
+      "n_pairs": 64
+    },
+    {
+      "baseline": "B0",
+      "candidate": "B3",
+      "delta": 0.5156,
+      "ci95": [
+        0.3906,
+        0.6406
+      ],
+      "mcnemar_p": 0.0,
+      "discordant_b": 33,
+      "discordant_c": 0,
+      "n_pairs": 64
+    },
+    {
+      "baseline": "B0",
+      "candidate": "B4",
+      "delta": 0.5156,
+      "ci95": [
+        0.3906,
+        0.6406
+      ],
+      "mcnemar_p": 0.0,
+      "discordant_b": 33,
+      "discordant_c": 0,
+      "n_pairs": 64
+    }
+  ]
+}
